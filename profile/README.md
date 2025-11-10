@@ -25,37 +25,57 @@
 
 ## System Architecture
 
+```mermaid
+flowchart LR
+  %% External Sources
+  subgraph External_Sources [External Sources]
+    reddit[Reddit API]
+    forums[Forums]
+    usenet[Usenet / NNTP]
+    news[News Sites]
+    chat_ingest[Slack / Discord]
+  end
+
+  %% ZeroMeld Platform
+  subgraph ZeroMeld_Platform [ZeroMeld Platform]
+    sync_layer["Sync Layer (reddit-slack)"]
+    orch_layer["Orchestration Layer (being abstracted from Django)"]
+
+    subgraph View_Layer [View Layer]
+      validateme["ValidateMe (Security Gateway, IP + Auth Access Control)"]
+      django_backend["Django Backend (Management & API)"]
+    end
+  end
+
+  %% Destinations
+  subgraph Destinations
+    slack_out[Slack]
+    webhooks[Webhooks]
+    coda[Coda]
+    csv_api["CSV / API"]
+    db[Database]
+  end
+
+  %% Flows from External Sources → Sync Layer
+  reddit --> sync_layer
+  forums --> sync_layer
+  usenet --> sync_layer
+  news --> sync_layer
+  chat_ingest --> sync_layer
+
+  %% Sync Layer → Orchestration → View
+  sync_layer --> orch_layer
+  orch_layer --> validateme
+  validateme --> django_backend
+
+  %% Sync Layer → Destinations
+  sync_layer --> slack_out
+  sync_layer --> webhooks
+  sync_layer --> coda
+  sync_layer --> csv_api
+  sync_layer --> db
 ```
-External Sources                  ZeroMeld Platform                    Destinations
-┌──────────────┐                                                      ┌──────────────┐
-│ Reddit API   │─┐                                                    │ Slack        │
-│ Forums       │ │               ┌─────────────────┐                  │ Webhooks     │
-│ Usenet/NNTP  │─┼──────────────>│  Sync Layer     │─────────────────>│ Coda         │
-│ News Sites   │ │               │  (reddit-slack) │                  │ CSV/API      │
-│ Slack/Discord│ │               └─────────────────┘                  │ Database     │
-└──────────────┘─┘                         |                          └──────────────┘
-                                           |
-                                           v
-                           ┌─────────────────────────────────┐
-                           │    Orchestration Layer          │
-                           │  (being abstracted from Django) │
-                           └─────────────────────────────────┘
-                                           │
-                                           v
-                         ┌──────────────────────────────────────┐
-                         │         View Layer                   │
-                         │  ┌────────────────────────────────┐  │
-                         │  │  ValidateMe (Security Gateway) │  │
-                         │  │  IP + Auth Access Control      │  │
-                         │  └────────────────────────────────┘  │
-                         │                 │                    │
-                         │                 v                    │
-                         │  ┌────────────────────────────────┐  │
-                         │  │  Django Backend                │  │
-                         │  │  Management & API              │  │
-                         │  └────────────────────────────────┘  │
-                         └──────────────────────────────────────┘
-```
+
 
 ---
 
