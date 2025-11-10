@@ -5,7 +5,7 @@
 [![GitHub](https://img.shields.io/badge/GitHub-ZeroMeld-blue?logo=github)](https://github.com/ZeroMeld)
 [![License: Private](https://img.shields.io/badge/License-Private-red.svg)]()
 
-> Automating social media content curation, delivery, and management. Integration between Reddit, Slack/Coda/CSV/databases/APIs/etc and custom content delivery systems. Manage heterogeneous information and cases in a single place easily. A lightweight CRM-like system for individuals, small organizations, nonprofits, authors, influencers, and anyone who needs to track and manage data from multiple sources.
+> Automating social media content curation, delivery, and management. Integration between Reddit, Slack / Coda/ CSVs / databases / APIs / etc and custom content delivery systems. Manage heterogeneous information and cases in a single place easily. A lightweight CRM-like system for individuals, small organizations, nonprofits, authors, influencers, and anyone who needs to track and manage data from multiple sources.
 
 ---
 
