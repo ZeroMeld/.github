@@ -133,17 +133,17 @@ Django-based platform providing orchestration, content management, admin interfa
 
 ## Use Cases
 
+### Small Organizations & Nonprofits
+- Track and create cases for conversations and engagement
+- Centralize information from various community channels
+- Monitor relevant news and policy updates
+- Manage volunteer coordination across platforms
+
 ### Content Creators & Influencers
 - Track mentions across Reddit, forums, social media
 - Aggregate fan discussions and feedback
 - Monitor industry trends and competitors
 - Organize content ideas from multiple sources
-
-### Small Organizations & Nonprofits
-- Centralize information from various community channels
-- Track donor conversations and engagement
-- Monitor relevant news and policy updates
-- Manage volunteer coordination across platforms
 
 ### Authors & Researchers
 - Track discussions about topics/books
@@ -169,6 +169,7 @@ Django-based platform providing orchestration, content management, admin interfa
 
 ### Multi-Source Ingestion
 **Current**: Reddit
+
 **Planned**: Forums, Usenet/NNTP, news sites, Slack, Discord, IRC, RSS feeds, email, webhooks
 
 ### Intelligent Routing
@@ -178,8 +179,9 @@ Django-based platform providing orchestration, content management, admin interfa
 - Conditional delivery logic
 
 ### Multi-Destination Delivery
-**Current**: Slack, Coda, direct database
-**Planned**: CSV export, REST APIs, email, webhooks, custom integrations
+**Current**: Slack, Coda, direct database, CSV/JSON export, REST APIs
+
+**Planned**: email, webhooks, custom integrations
 
 ### Secure Access
 - ValidateMe security gateway
@@ -228,7 +230,7 @@ ZeroMeld is deployed in multiple isolated environments. Each environment is inde
 
 **Project Locations**:
 - [ZeroMeld/ZMView-ValidateMe](https://github.com/ZeroMeld/ZMView-ValidateMe) *(Private, feature-complete)*
-- [ZeroMeld/reddit-slack](https://github.com/djdarcy/reddit-slack) *(Private, will migrate)*
+- [ZeroMeld/reddit-slack](https://github.com/djdarcy/reddit-slack) *(Private, feature-complete, will migrate)*
 - [ZeroMeld/redditslack-django](https://github.com/djdarcy/redditslack-django) *(Private, will migrate)*
 
 **Future Plans**:
